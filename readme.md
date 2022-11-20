@@ -1,5 +1,7 @@
 # `esbuild-plugin-define`
 
+[![Build Status](https://github.com/webdeveric/esbuild-plugin-define/workflows/Node.js%20CI/badge.svg)](https://github.com/webdeveric/esbuild-plugin-define/actions)
+
 ## Install
 
 ```sh
