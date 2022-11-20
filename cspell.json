@@ -1,0 +1,13 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": ["esbuild", "postbuild", "typecheck", "vitest", "webdeveric"],
+  "flagWords": [],
+  "ignorePaths": ["package-lock.json", "node_modules", ".vscode"],
+  "languageSettings": [
+    {
+      "languageId": "commit-msg",
+      "ignoreRegExpList": ["/^#.*/gm"]
+    }
+  ]
+}

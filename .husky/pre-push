@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+origin="${1:-origin}"
+
+# Look for any .ts, .tsx, or tsconfig.json files
+tsFiles=$(git diff --stat --cached ${origin}/master --name-only | grep -E "(\.tsx?|tsconfig\.json)$" || [[ $? == 1 ]])
+
+if [ "$tsFiles" = "" ]; then
+  echo "No TypeScript files found. Skipping typecheck."
+
+  exit 0
+fi
+
+npm run typecheck

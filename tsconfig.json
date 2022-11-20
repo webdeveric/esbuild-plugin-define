@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "lib": ["es2021"],
+    "removeComments": true,
+    "sourceMap": false,
+    "declaration": true,
+    "declarationDir": "./dist/types",
+    "target": "ES2021",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "outDir": "./dist",
+    "downlevelIteration": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowUnusedLabels": false,
+    "allowUnreachableCode": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "importsNotUsedAsValues": "error",
+    "noErrorTruncation": true,
+    "exactOptionalPropertyTypes": true,
+    "noImplicitOverride": false,
+    "noUncheckedIndexedAccess": false
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "private"]
+}
