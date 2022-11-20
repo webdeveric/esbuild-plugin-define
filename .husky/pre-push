@@ -3,10 +3,9 @@
 
 origin="${1:-origin}"
 
-# Look for any .ts, .tsx, or tsconfig.json files
-tsFiles=$(git diff --stat --cached ${origin}/master --name-only | grep -E "(\.tsx?|tsconfig\.json)$" || [[ $? == 1 ]])
+numberOfTsFiles=$(git diff --stat --cached ${origin}/master --name-only | grep -E "(\.tsx?|tsconfig\.json)$" | wc -l)
 
-if [ "$tsFiles" = "" ]; then
+if [ "$numberOfTsFiles" = "0" ]; then
   echo "No TypeScript files found. Skipping typecheck."
 
   exit 0
