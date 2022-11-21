@@ -1,6 +1,6 @@
 {
   "name": "esbuild-plugin-define",
-  "version": "0.1.1",
+  "version": "0.1.0",
   "description": "esbuild plugin to define global identifiers",
   "license": "MIT",
   "author": {
@@ -58,7 +58,7 @@
     "test": "vitest -c vitest.config.mts",
     "coverage": "vitest run  -c vitest.config.mts --coverage",
     "prepack": "npm run build",
-    "prepublishOnly": "npm run typecheck && npm run spellcheck && npm run lint && npm run coverage && npm run build",
+    "prepublishOnly": "npm run typecheck && npm run spellcheck && npm run lint && npm run coverage",
     "prepare": "husky install"
   },
   "prettier": "@webdeveric/prettier-config",
