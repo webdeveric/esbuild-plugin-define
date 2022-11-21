@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { convertToDefineObject, makeKey } from './utils';
+import { convertToDefineObject, makeKey } from './utils.js';
 
 describe.concurrent('makeKey()', () => {
   it('Joins strings with a dot', () => {
@@ -23,5 +23,13 @@ describe('convertToDefineObject()', () => {
         process: { env: { TEST: true } },
       }),
     ).toMatchObject(expect.objectContaining({ 'process.env.TEST': 'true' }));
+  });
+
+  it('Undefined values get "undefined" as a string', () => {
+    expect(
+      convertToDefineObject({
+        process: { env: { TEST: undefined } },
+      }),
+    ).toMatchObject(expect.objectContaining({ 'process.env.TEST': 'undefined' }));
   });
 });

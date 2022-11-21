@@ -1,6 +1,6 @@
 import { isObject } from '@webdeveric/utils/type-predicate';
 
-import type { StringRecord, StringTuple } from './types';
+import type { StringRecord, StringTuple } from './types.js';
 import type { UnknownRecord } from '@webdeveric/utils';
 
 export const makeKey = (...inputs: string[]): string => inputs.filter(input => !!input).join('.');
@@ -13,7 +13,7 @@ export function convertToDefineObject(data: UnknownRecord): StringRecord {
       if (isObject(value)) {
         entries.push(...convertToEntries(value, newKey));
       } else {
-        entries.push([newKey, JSON.stringify(value)]);
+        entries.push([newKey, JSON.stringify(value) ?? String(undefined)]);
       }
 
       return entries;
