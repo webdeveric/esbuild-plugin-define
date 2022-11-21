@@ -2,7 +2,7 @@ import type { PluginBuild } from 'esbuild';
 
 import { describe, expect, it } from 'vitest';
 
-import { definePlugin, PLUGIN_NAME } from './plugin';
+import { definePlugin, PLUGIN_NAME } from './plugin.js';
 
 describe('definePlugin()', () => {
   it('Returns an esbuild plugin', () => {

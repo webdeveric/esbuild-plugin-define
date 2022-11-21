@@ -1,4 +1,4 @@
-import { convertToDefineObject } from './utils';
+import { convertToDefineObject } from './utils.js';
 
 import type { Plugin } from 'esbuild';
 import type { UnknownRecord } from '@webdeveric/utils';
