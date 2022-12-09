@@ -1,7 +1,7 @@
 import { isObject } from '@webdeveric/utils/type-predicate';
 
-import type { StringRecord, StringTuple } from './types.js';
-import type { UnknownRecord } from '@webdeveric/utils';
+import type { StringRecord, UnknownRecord } from '@webdeveric/utils';
+import type { StringTuple } from './types.js';
 
 export const makeKey = (...inputs: string[]): string => inputs.filter(input => !!input).join('.');
 
