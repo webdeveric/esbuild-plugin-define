@@ -14,15 +14,40 @@ describe.concurrent('makeKey()', () => {
 
 describe('convertToDefineObject()', () => {
   it('Returns a string record', () => {
-    expect(convertToDefineObject({ test: true })).toMatchObject(expect.objectContaining({ test: 'true' }));
+    expect(
+      convertToDefineObject({
+        test: true,
+        name: 'Test',
+        age: 100,
+        symbol: Symbol.for('Not going to work'),
+      }),
+    ).toMatchObject(
+      expect.objectContaining({
+        test: 'true',
+        name: '"Test"',
+        age: '100',
+        symbol: 'undefined',
+      }),
+    );
   });
 
   it('Flattens objects into a string record', () => {
     expect(
       convertToDefineObject({
-        process: { env: { TEST: true } },
+        TEST: true,
+        other: {
+          data: 100,
+        },
+        process: { env: { TEST: true, DEMO: ['demo', 100] } },
       }),
-    ).toMatchObject(expect.objectContaining({ 'process.env.TEST': 'true' }));
+    ).toMatchObject(
+      expect.objectContaining({
+        TEST: 'true',
+        'other.data': '100',
+        'process.env.TEST': 'true',
+        'process.env.DEMO': '["demo",100]',
+      }),
+    );
   });
 
   it('Undefined values get "undefined" as a string', () => {

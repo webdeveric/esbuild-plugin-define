@@ -12,7 +12,7 @@ describe('definePlugin()', () => {
   });
 
   it('Modifies initialOptions.define', async () => {
-    const plugin = definePlugin({ test: true });
+    const plugin = definePlugin({ test: true, name: 'Test', age: 100 });
 
     const build: Partial<PluginBuild> = {
       initialOptions: {
@@ -24,6 +24,8 @@ describe('definePlugin()', () => {
 
     expect(build.initialOptions?.define).toMatchObject({
       test: 'true',
+      name: '"Test"',
+      age: '100',
     });
   });
 });
