@@ -1,3 +1,5 @@
+import { build } from 'esbuild';
+
 import type { PluginBuild } from 'esbuild';
 
 import { describe, expect, it } from 'vitest';
@@ -27,5 +29,41 @@ describe('definePlugin()', () => {
       name: '"Test"',
       age: '100',
     });
+  });
+});
+
+describe('Usage with esbuild', () => {
+  it('One level object', async () => {
+    const results = await build({
+      write: false,
+      stdin: {
+        contents: 'console.log(TEST)',
+      },
+      plugins: [
+        definePlugin({
+          TEST: true,
+        }),
+      ],
+    });
+
+    expect(results.outputFiles.at(0)?.text.trim()).toBe('console.log(true);');
+  });
+
+  it('Multi level object', async () => {
+    const results = await build({
+      write: false,
+      stdin: {
+        contents: 'console.log(Tester.Name)',
+      },
+      plugins: [
+        definePlugin({
+          Tester: {
+            Name: 'Test Testerson',
+          },
+        }),
+      ],
+    });
+
+    expect(results.outputFiles.at(0)?.text.trim()).toBe('console.log("Test Testerson");');
   });
 });
