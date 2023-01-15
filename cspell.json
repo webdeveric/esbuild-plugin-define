@@ -1,7 +1,7 @@
 {
   "version": "0.2",
   "language": "en",
-  "words": ["esbuild", "pnpm", "postbuild", "preinstall", "typecheck", "vitest", "webdeveric"],
+  "words": ["esbuild", "pnpm", "postbuild", "preinstall", "Testerson", "typecheck", "vitest", "webdeveric"],
   "flagWords": [],
   "ignorePaths": ["pnpm-lock.yaml", "package-lock.json", "node_modules", ".vscode"],
   "languageSettings": [
