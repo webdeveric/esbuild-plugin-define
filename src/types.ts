@@ -1,3 +1,5 @@
-import type { KeyValueTuple } from '@webdeveric/utils';
+export type KeyValueTuple = [key: string, value: string];
 
-export type StringTuple = KeyValueTuple<string, string>;
+export type UnknownRecord = Record<PropertyKey, unknown>;
+
+export type StringRecord = Record<string, string>;
