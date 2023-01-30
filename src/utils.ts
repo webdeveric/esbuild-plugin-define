@@ -1,16 +1,13 @@
-import { isObject } from '@webdeveric/utils/type-predicate';
-
-import type { StringRecord, UnknownRecord } from '@webdeveric/utils';
-import type { StringTuple } from './types.js';
+import type { KeyValueTuple, StringRecord, UnknownRecord } from './types.js';
 
 export const makeKey = (...inputs: string[]): string => inputs.filter(input => !!input).join('.');
 
 export function convertToDefineObject(data: UnknownRecord): StringRecord {
-  const convertToEntries = (data: UnknownRecord, prefix = ''): StringTuple[] => {
-    return Object.entries(data).reduce<StringTuple[]>((entries, [key, value]) => {
+  const convertToEntries = <T extends object>(data: T, prefix = ''): KeyValueTuple[] => {
+    return Object.entries(data).reduce<KeyValueTuple[]>((entries, [key, value]) => {
       const newKey = makeKey(prefix, key);
 
-      if (isObject(value)) {
+      if (value && typeof value === 'object' && !Array.isArray(value)) {
         entries.push(...convertToEntries(value, newKey));
       } else {
         entries.push([newKey, JSON.stringify(value) ?? String(undefined)]);

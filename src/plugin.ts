@@ -1,7 +1,7 @@
 import { convertToDefineObject } from './utils.js';
 
 import type { Plugin } from 'esbuild';
-import type { UnknownRecord } from '@webdeveric/utils';
+import type { UnknownRecord } from './types.js';
 
 export const PLUGIN_NAME = 'define-plugin';
 
