@@ -1,6 +1,3 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
-
 origin="${1:-origin}"
 
 numberOfTsFiles=$(git diff --stat --cached ${origin}/master --name-only | grep -E "(\.tsx?|tsconfig\.json)$" | wc -l)
