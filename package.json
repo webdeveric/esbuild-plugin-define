@@ -45,7 +45,7 @@
     "dist"
   ],
   "scripts": {
-    "lint": "eslint --fix ./*{js,cjs,mjs} ./src/ ./bin/",
+    "lint": "eslint --fix ./*{js,cjs,mjs} ./src/",
     "clean": "rimraf ./dist/",
     "prebuild": "pnpm clean",
     "build:cjs": "tsc -p ./tsconfig.cjs.json",
