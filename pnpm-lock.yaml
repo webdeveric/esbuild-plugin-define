@@ -57,8 +57,8 @@ importers:
         specifier: ^5.4.5
         version: 5.4.5
       validate-package-exports:
-        specifier: ^0.4.0
-        version: 0.4.0
+        specifier: ^0.5.0
+        version: 0.5.0
       vitest:
         specifier: ^1.6.0
         version: 1.6.0
@@ -917,8 +917,8 @@ packages:
     peerDependencies:
       prettier: '>=2.4.0'
 
-  '@webdeveric/utils@0.30.0':
-    resolution: {integrity: sha512-2lM2//bKrRx7tgWgTyJDAUVxocw6vb1H8/pq4mRKxUlZIW6cLIR455joYALuLM7e7wyjC9Tk7dtRz9UT3q8ijg==}
+  '@webdeveric/utils@0.31.0':
+    resolution: {integrity: sha512-KMkJO/Qx9jz+7HOEyRDeDCzCATIeipQBAqyK2zSy3RzjhPXs1jst+m11WqlRKMEEE7d6kLmatsh6VrmR1MYtqg==}
     engines: {node: '>=18.0.0'}
 
   abbrev@2.0.0:
@@ -2574,8 +2574,8 @@ packages:
     resolution: {integrity: sha512-OljLrQ9SQdOUqTaQxqL5dEfZWrXExyyWsozYlAWFawPVNuD83igl7uJD2RTkNMbniIYgt8l81eCJGIdQF7avLQ==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
 
-  validate-package-exports@0.4.0:
-    resolution: {integrity: sha512-S9BSg+i4Jk468MGRmIpHEJUSIqUvdjjgkGyNy1JcuNCgSBn2bDavpKHY3MtyMUM0BNLDqAXIwxkhUWYrCNZe7A==}
+  validate-package-exports@0.5.0:
+    resolution: {integrity: sha512-22+hkr6RB++pBo2pC5qTj6OEACk98sjXOd1vGRLYjCbYqngaCiziVwZiziWKFLq/Ags1DlQfPAH5musgOgVmNg==}
     engines: {node: '>=18.14.0'}
     hasBin: true
 
@@ -3521,7 +3521,7 @@ snapshots:
     dependencies:
       prettier: 3.2.5
 
-  '@webdeveric/utils@0.30.0':
+  '@webdeveric/utils@0.31.0':
     dependencies:
       lodash.clonedeep: 4.5.0
       lodash.escaperegexp: 4.1.2
@@ -5444,10 +5444,10 @@ snapshots:
 
   validate-npm-package-name@5.0.1: {}
 
-  validate-package-exports@0.4.0:
+  validate-package-exports@0.5.0:
     dependencies:
       '@npmcli/arborist': 7.5.1
-      '@webdeveric/utils': 0.30.0
+      '@webdeveric/utils': 0.31.0
       npm-packlist: 8.0.2
     transitivePeerDependencies:
       - bluebird
