@@ -9,6 +9,7 @@
     "postbuild",
     "preinstall",
     "Testerson",
+    "tsbuildinfo",
     "typecheck",
     "vitest",
     "webdeveric"
