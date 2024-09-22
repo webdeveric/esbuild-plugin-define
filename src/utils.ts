@@ -1,8 +1,8 @@
 import type { KeyValueTuple, StringRecord, UnknownRecord } from './types.js';
 
-export const makeKey = (...inputs: string[]): string => inputs.filter(input => !!input).join('.');
+export const makeKey = (...inputs: string[]): string => inputs.filter((input) => !!input).join('.');
 
-export function convertToDefineObject(data: UnknownRecord): StringRecord {
+export function convertToDefineObject(record: UnknownRecord): StringRecord {
   const convertToEntries = <T extends object>(data: T, prefix = ''): KeyValueTuple[] => {
     return Object.entries(data).reduce<KeyValueTuple[]>((entries, [key, value]) => {
       const newKey = makeKey(prefix, key);
@@ -17,5 +17,5 @@ export function convertToDefineObject(data: UnknownRecord): StringRecord {
     }, []);
   };
 
-  return Object.fromEntries(convertToEntries(data));
+  return Object.fromEntries(convertToEntries(record));
 }

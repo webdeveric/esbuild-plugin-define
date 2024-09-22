@@ -16,15 +16,15 @@ describe('definePlugin()', () => {
   it('Modifies initialOptions.define', async () => {
     const plugin = definePlugin({ test: true, name: 'Test', age: 100 });
 
-    const build: Partial<PluginBuild> = {
+    const pluginBuild: Partial<PluginBuild> = {
       initialOptions: {
         define: {},
       },
     };
 
-    await plugin.setup(build as PluginBuild);
+    await plugin.setup(pluginBuild as PluginBuild);
 
-    expect(build.initialOptions?.define).toMatchObject({
+    expect(pluginBuild.initialOptions?.define).toMatchObject({
       test: 'true',
       name: '"Test"',
       age: '100',
