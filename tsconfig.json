@@ -1,31 +1,14 @@
 {
+  "extends": "./tsconfig.base.json",
+  "files": [],
   "compilerOptions": {
-    "lib": ["es2022"],
-    "removeComments": true,
-    "sourceMap": false,
-    "declaration": true,
-    "declarationDir": "./dist/types",
-    "target": "es2022",
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-    "verbatimModuleSyntax": true,
-    "strict": true,
-    "outDir": "./dist",
-    "downlevelIteration": true,
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "isolatedModules": true,
-    "forceConsistentCasingInFileNames": true,
-    "allowUnusedLabels": false,
-    "allowUnreachableCode": false,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noErrorTruncation": true,
-    "exactOptionalPropertyTypes": true,
-    "noImplicitOverride": false,
-    "noUncheckedIndexedAccess": false
+    "incremental": true,
+    "tsBuildInfoFile": "./cache/.tsbuildinfo"
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "private"]
+  "references": [
+    { "path": "./tsconfig.mjs.json" },
+    { "path": "./tsconfig.cjs.json" },
+    { "path": "./tsconfig.test.json" },
+    { "path": "./tsconfig.configs.json" }
+  ]
 }

@@ -1,7 +1,15 @@
 {
-  "extends": "./tsconfig.json",
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "outDir": "./dist/mjs"
+    "composite": true,
+    "noEmit": false,
+    "module": "Node16",
+    "moduleResolution": "Node16",
+    "rootDir": "./src",
+    "sourceRoot": "./src",
+    "outDir": "./dist/mjs",
+    "verbatimModuleSyntax": true,
+    "tsBuildInfoFile": "./cache/mjs.tsbuildinfo"
   },
   "include": ["src/**/*"],
   "exclude": ["src/**/*.test.ts"]

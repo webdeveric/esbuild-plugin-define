@@ -1,11 +1,14 @@
 {
-  "extends": "./tsconfig.json",
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "module": "commonjs",
-    "moduleResolution": "Node10",
-    "target": "ES2018",
+    "composite": true,
+    "noEmit": false,
+    "rootDir": "./src",
+    "sourceRoot": "./src",
     "outDir": "./dist/cjs",
-    "verbatimModuleSyntax": false
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "tsBuildInfoFile": "./cache/cjs.tsbuildinfo"
   },
   "include": ["src/**/*"],
   "exclude": ["src/**/*.test.ts"]
