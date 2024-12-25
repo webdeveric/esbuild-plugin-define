@@ -24,9 +24,9 @@
   "type": "module",
   "main": "./dist/cjs/plugin.js",
   "types": "./dist/types/plugin.d.ts",
-  "packageManager": "pnpm@9.11.0+sha512.0a203ffaed5a3f63242cd064c8fb5892366c103e328079318f78062f24ea8c9d50bc6a47aa3567cabefd824d170e78fa2745ed1f16b132e16436146b7688f19b",
+  "packageManager": "pnpm@9.15.1+sha512.1acb565e6193efbebda772702950469150cf12bcc764262e7587e71d19dc98a423dff9536e57ea44c49bdf790ff694e83c27be5faa23d67e0c033b583be4bfcf",
   "engines": {
-    "node": ">=18.14.0"
+    "node": ">=20.0.0"
   },
   "exports": {
     ".": {
@@ -54,7 +54,7 @@
     "typecheck": "tsc --build --verbose --noEmit",
     "spellcheck": "cspell --no-progress './{.github,src,test}/**/*.{ts,js,json}' './*.{md,js}' './package.json'",
     "format": "prettier --write ./*.{js,json,md} ./src/ ./test/ --no-error-on-unmatched-pattern",
-    "test": "vitest -c vitest.config.mts",
+    "test": "vitest",
     "coverage": "vitest run --coverage",
     "prepack": "pnpm build",
     "prepublishOnly": "pnpm typecheck && pnpm spellcheck && pnpm lint && pnpm coverage",
@@ -65,23 +65,23 @@
     "esbuild": ">=0.15"
   },
   "devDependencies": {
-    "@vitest/coverage-v8": "^2.1.1",
+    "@vitest/coverage-v8": "^2.1.8",
     "@webdeveric/eslint-config-ts": "^0.11.0",
     "@webdeveric/prettier-config": "^0.3.0",
-    "cspell": "^8.14.4",
-    "esbuild": "^0.24.0",
+    "cspell": "^8.17.1",
+    "esbuild": "^0.24.2",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-import-resolver-typescript": "^3.6.3",
-    "eslint-plugin-import": "^2.30.0",
+    "eslint-import-resolver-typescript": "^3.7.0",
+    "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-prettier": "^5.2.1",
-    "glob": "^10.4.5",
-    "husky": "^9.1.6",
-    "lint-staged": "^15.2.10",
-    "prettier": "^3.3.3",
-    "rimraf": "^5.0.10",
-    "typescript": "^5.6.2",
-    "validate-package-exports": "^0.6.1",
-    "vitest": "^2.1.1"
+    "glob": "^11.0.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.11",
+    "prettier": "^3.4.2",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.7.2",
+    "validate-package-exports": "^0.8.0",
+    "vitest": "^2.1.8"
   }
 }
