@@ -24,7 +24,7 @@
   "type": "module",
   "main": "./dist/cjs/plugin.js",
   "types": "./dist/types/plugin.d.ts",
-  "packageManager": "pnpm@10.6.5+sha256.47c8bca42b4b48534b5b1b28d573c506773937b02f68e52992fbd8269131c5c8",
+  "packageManager": "pnpm@10.10.0+sha512.d615db246fe70f25dcfea6d8d73dee782ce23e2245e3c4f6f888249fb568149318637dca73c2c5c8ef2a4ca0d5657fb9567188bfab47f566d1ee6ce987815c39",
   "engines": {
     "node": ">=20.0.0"
   },
