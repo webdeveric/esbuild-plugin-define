@@ -4,10 +4,9 @@
     "composite": true,
     "noEmit": false,
     "rootDir": "./src",
-    "sourceRoot": "./src",
     "outDir": "./dist/cjs",
     "module": "CommonJS",
-    "moduleResolution": "Node",
+    "moduleResolution": "bundler",
     "tsBuildInfoFile": "./cache/cjs.tsbuildinfo"
   },
   "include": ["src/**/*"],
