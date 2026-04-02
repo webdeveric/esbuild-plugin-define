@@ -2,6 +2,7 @@
   "version": "0.2",
   "language": "en",
   "words": [
+    "commitlint",
     "esbuild",
     "npmrc",
     "nvmrc",
@@ -16,11 +17,5 @@
     "webdeveric"
   ],
   "flagWords": [],
-  "ignorePaths": ["pnpm-lock.yaml", "package-lock.json", "node_modules", ".vscode"],
-  "languageSettings": [
-    {
-      "languageId": "commit-msg",
-      "ignoreRegExpList": ["/^#.*/gm"]
-    }
-  ]
+  "ignorePaths": ["pnpm-lock.yaml", "node_modules", ".vscode"]
 }
