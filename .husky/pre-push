@@ -8,4 +8,4 @@ if [ "$numberOfTsFiles" = "0" ]; then
   exit 0
 fi
 
-npm run typecheck
+pnpm typecheck
