@@ -12,10 +12,7 @@ module.exports = {
     node: true,
   },
   parserOptions: {
-    project: true,
-    tsconfigRootDir: __dirname,
-    // eslint-disable-next-line @typescript-eslint/naming-convention
-    EXPERIMENTAL_useProjectService: true,
+    projectService: true,
   },
   settings: {
     'import/extensions': ['.ts', '.mts', '.cts', '.js', '.json'],
