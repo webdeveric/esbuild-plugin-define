@@ -1,3 +1,14 @@
 allowBuilds:
   esbuild: true
   unrs-resolver: true
+
+autoInstallPeers: true
+
+enablePrePostScripts: false
+
+engineStrict: true
+
+minimumReleaseAge: 2880 # 2 days
+
+minimumReleaseAgeExclude:
+  - validate-package-exports@1.3.3
