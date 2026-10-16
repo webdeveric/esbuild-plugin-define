@@ -10,9 +10,6 @@ concurrency: release
 env:
   HUSKY: 0
 
-permissions:
-  contents: read # for checkout
-
 jobs:
   release:
     name: Release
@@ -29,26 +26,27 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6.0.10
-
-      - name: Use Node.js
-        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+      - name: Setup
+        uses: pnpm/setup@a0881977cd8ea73b1ed212236c99ca10dcc80cf4 # v3.1.1
         with:
-          node-version-file: '.node-version'
-          cache: 'pnpm'
+          cache: true
+          install: false # Audit before installing dependencies
 
-      - name: Install latest npm
-        run: |
-          npm install -g npm@latest
-          npm --version
+      - name: Audit dependencies
+        run: pnpm audit --audit-level=moderate --prod
 
       - name: Installing dependencies
         run: pnpm install --frozen-lockfile
 
-      # https://github.com/pnpm/pnpm/issues/7909
+      # TODO: Uncomment this once a new version of pnpm is released that ignores `devEngines.runtime`.
       # - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
       #   run: npm audit signatures
+
+      - name: Building
+        run: pnpm build
+
+      - name: Install npm for Trusted Publishing
+        run: pnpm add --global npm@latest
 
       - name: Release
         env:

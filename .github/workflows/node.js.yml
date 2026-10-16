@@ -13,36 +13,63 @@ permissions:
   contents: read # for checkout
 
 jobs:
-  ci:
-    name: Continuous Integration
-    runs-on: ubuntu-24.04
+  core:
+    name: Continuous Integration Core Checks
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6.0.10
-
-      - name: Use Node.js
-        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+      - name: Setup
+        uses: pnpm/setup@a0881977cd8ea73b1ed212236c99ca10dcc80cf4 # v3.1.1
         with:
-          node-version-file: '.node-version'
-          cache: 'pnpm'
+          cache: true
+          install: false # Audit before installing dependencies
 
-      - name: Installing dependencies
+      - name: Audit dependencies
+        run: pnpm audit --audit-level=moderate --prod
+
+      - name: Install dependencies
         run: pnpm install --frozen-lockfile
+
+      # TODO: restore this step once pnpm audit signatures stops failing for `devEngines.runtime` with `Missing registry metadata`.
+      # - name: Verify registry signatures for installed packages
+      #   run: pnpm audit signatures
+
+      - name: Check spelling
+        run: pnpm spellcheck
+
+      - name: Typecheck
+        run: pnpm typecheck
 
       - name: Linting
         run: pnpm lint
-
-      - name: Type checking
-        run: pnpm typecheck
-
-      - name: Spell check
-        run: pnpm spellcheck
 
       - name: Testing
         run: pnpm coverage
 
       - name: Building
         run: pnpm build
+
+  tests:
+    needs: core
+    name: Continuous Integration Tests
+    strategy:
+      fail-fast: true
+      matrix:
+        esbuild: ['0.15', latest]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Setup
+        uses: pnpm/setup@a0881977cd8ea73b1ed212236c99ca10dcc80cf4 # v3.1.1
+        with:
+          cache: true
+
+      - name: Install specific dependency versions
+        run: pnpm add -D esbuild@${{ matrix.esbuild }}
+
+      - name: Test
+        run: pnpm coverage
